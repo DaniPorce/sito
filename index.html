@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
+
+    <style>
+        /* Stile per personalizzare la dimensione dell'icona navbar */
+        .navbar-brand img {
+            width: auto;
+            /* Imposta la larghezza desiderata dell'icona */
+            height: auto;
+            /* Mantieni l'altezza proporzionale per non distorcere l'immagine */
+        }
+
+        .custom-height {
+            height: 700px;
+        }
+
+        
+
+
+        body {
+            height: 100%;
+            overflow-y: scroll;
+            /* Imposta la barra di scorrimento verticale */
+            font-family: 'Lato', sans-serif;
+            font-family: cursive;
+            background-color: #000;
+            overflow-x: hidden;
+            /* Impedisce lo scorrimento orizzontale */
+            margin: 0;
+            /* Rimuove i margini predefiniti */
+            padding: 0;
+            /* Rimuove i padding predefiniti */
+        }
+
+
+
+        .background {
+            background-position: center;
+            background-size: cover;
+            text-align: center;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-container img {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .image-container:hover img {
+            transform: scale(1.1);
+        }
+
+        .nav-link i {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .nav-link:hover i {
+            transform: translateY(-5px);
+        }
+
+        @keyframes move {
+            from {
+                left: 0;
+            }
+
+            to {
+                left: 10px;
+            }
+        }
+
+        a.navbar-brand img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .bi-lightbulb:hover {
+            filter: drop-shadow(0 0 10px #ffcc00);
+        }
+
+        .navbar .nav-link {
+            color: white;
+            font-weight: bold;
+        }
+
+        .navbar .nav-link:hover {
+            color: #ffc107;
+        }
+
+        .center-text {
+            position: relative;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .center-text span {
+            background-color: black;
+            color: white;
+            padding: 2px 10px;
+            font-size: 18px;
+        }
+
+        .center-text::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: black;
+            bottom: -10px;
+            left: 0;
+        }
+
+        .section-title {
+            margin-top: 20px;
+            /* Ridotto il margine superiore */
+            margin-bottom: 20px;
+            /* Aggiunto un margine inferiore */
+            text-align: center;
+        }
+
+
+        #documenti_richiesti {
+            background-color: black;
+            color: white;
+        }
+
+        footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 100px;
+            background-color: black;
+            color: white;
+        }
+
+
+
+
+        /* Aggiungi spazio tra le sezioni */
+        section {
+            margin-bottom: 50px;
+            margin-top: 0;
+            /* Aggiungi spazio sotto ogni sezione */
+        }
+
+        /* Aggiungi spazio sopra e sotto gli span */
+        .section-title span {
+            display: block;
+            margin-top: 20px;
+            /* Aggiungi spazio sopra ogni span */
+            margin-bottom: 20px;
+            /* Aggiungi spazio sotto ogni span */
+        }
+
+        .contact-section {
+            margin-top: 150px;
+            /* Colore di sfondo per la sezione */
+            color: #fff;
+            /* Colore del testo */
+            padding: 50px;
+            /* Spaziatura interna */
+            border-radius: 10px;
+            /* Bordo arrotondato */
+            max-width: 600px;
+            /* Larghezza massima della sezione */
+            margin-left: auto;
+            /* Allineamento a sinistra */
+            margin-right: auto;
+            /* Allineamento a destra */
+        }
+
+        .contact-section h1 {
+            margin-bottom: 30px;
+            /* Spazio sotto l'intestazione */
+        }
+
+        .form-label {
+            color: #fff;
+            /* Colore dell'etichetta del modulo */
+        }
+    </style>
+
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#navbarNav" data-aos="fade-in">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="Icona_maria_kiko.jpg" alt="Logo" class="img-fluid rounded-circle">
+            </a>
+            <!-- Tasto per mostrare/hide il menu su schermi più piccoli -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Elementi del menu -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto ">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pellegrinaggio2023">Pellegrinaggio 2023</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#documenti_richiesti">Documenti Richiesti</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#live_chat">Live Chat</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#unisciti_al_gruppo">Unisciti al Gruppo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#eventi">Eventi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contattaci">Contattaci</a>
+                    </li>
+                </ul>
+                <!-- Aggiunta di icone per condividere, inviare email e telefono -->
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="bi bi-share"></i> <!-- Simbolo per condividere -->
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="mailto:your@email.com">
+                            <i class="bi bi-envelope"></i> <!-- Simbolo per inviare email -->
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tel:+1234567890">
+                            <i class="bi bi-telephone"></i> <!-- Simbolo per telefono -->
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <section class="container-fluid background fade-in" id="home"
+        style="background-image: url('Icona_maria_kiko.jpg'); margin-bottom: 0;" data-aos="fade-in">
+        <div class="container ">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-md-4 mx-auto">
+                    <div class="row align-items-center">
+                        <div class="col-12 text-center">
+                            <div class="my-4">
+                                <div class="row align-items-center">
+                                    <div class="col-md-14">
+                                        <h1
+                                            style="font-size: 4rem; text-shadow: 2px 2px 0px #000; color: #fff; letter-spacing: 0.1rem; margin-bottom: 0;">
+                                            Cammino Neocatecumenale</h1>
+                                        <h1 class="center-text text-white">
+                                            Piemonte
+                                        </h1>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                </div>
+                                <div class="row mt-4">
+                                    <div class="col-md-12">
+                                        <a id="live_chat" class="btn btn-outline-light btn-lg"
+                                            href="https://forms.fillout.com/t/86EgNi2mkqus">Contattami</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container fade-in" data-aos="fade-in">
+        <div class="row justify-content-center align-items-center" style="height: 100%; margin-top: 150px; ">
+            <div class="col-md-8 text-center" id="pellegrinaggio2023">
+                <h1 style="font-size: 3.5rem; color: white;">Pellegrinaggio 2024</h1>
+                <div class="col-md-12 d-flex justify-content-center align-items-center text-center"
+                    style="height: 100%;">
+                    <p style="color: white; margin: 20px 0;">Parteciperanno: Vercelli / Casale / Alessandria /
+                        Callianetto Fossano / Madonna del Pilone</p>
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </div>
+    <div class="row justify-content-center fade-in align-items-center"
+        style="background-image: url('santuario.jpg'); background-size: cover; background-position: center; margin-top: 100px; height: 400px;">
+        <div class="col-md-8 text-start text-white " data-aos="fade-in">
+            <h1>In Programmazione</h1>
+            <span>
+                <p>Durante il pellegrinaggio a Padova, è previsto un evento notturno speciale per giugno 2024. Partiremo
+                    dal Santuario di Graglia e cammineremo insieme fino al Santuario di Oropa, dedicando una notte
+                    intera alla preghiera e alla riflessione lungo questo percorso sacro.</p>
+            </span>
+            <hr style="border-top: 1px solid white; margin: 20px auto;">
+            <a href="https://forms.fillout.com/t/86EgNi2mkqus" class="btn btn-dark btn-lg">Iscriviti</a>
+        </div>
+    </div>
+
+    <div class="row justify-content-center fade-in align-items-center"
+        style="background-image: url('padova-prato-della-valle-hd.jpg'); background-size: cover; background-position: center;height: 400px;" data-aos="fade-in">
+        <div class="col-md-8 text-start text-white">
+            <h1>Padova 26/27/28 Luglio</h1>
+            <hr style="border-top: 1px solid white; margin: 20px auto;">
+            <a href="https://forms.fillout.com/t/86EgNi2mkqus" class="btn btn-dark btn-lg">Iscriviti</a>
+        </div>
+    </div>
+
+    <div class="row justify-content-center fade-in align-items-center"
+        style="background-image: url('HD-wallpaper-working-at-the-computer-keyboard-typing-on-the-keyboard-hands-on-the-keyboard-computer-working.jpg'); background-size: cover; background-position: center;height: 400px;" data-aos="fade-in">
+        <div class="col-md-8 text-start text-black">
+        
+            <div class="col-md-12 section-title">
+                <h2 style="color: black;">Documenti Richiesti</h2>
+                <ol style="padding-left: 0; list-style-type: none;">
+                    <li style="margin-bottom: 10px; color: black;">Scaricare il documento "Minori di 18 anni" in formato PDF editabile.</li>
+                    <li style="margin-bottom: 10px; color: black;">Compilare il PDF sul tuo smartphone o PC.</li>
+                    <li style="margin-bottom: 10px; color: black;">Caricare il documento regolarmente compilato.</li>
+                    <li style="color: black;">Caricare una copia del documento di identità del genitore/tutore del minore.</li>
+                </ol>
+                <div class="text-center">
+                    <a href="link_al_documento_minori_di_18.pdf" class="btn " download style="color: white; background-color: black;">Download Delega in PDF Editabile</a>
+                    <input type="file" accept="application/pdf" id="uploadDocument" style="display:none;">
+                    <label for="uploadDocument" class="btn btn-outline-light" style="color: white; background-color: black;">Carica Documenti Richiesti</label>
+                </div>
+            </div>
+            
+
+
+
+        </div>
+    </div>
+    <section class="container-fluid d-flex justify-content-center align-items-center mt-5 id="eventi">
+        <div class="container">
+            <h1 class="text-center text-white">Prossimi eventi</h1>
+            <div class="row justify-content-center text-center mt-3">
+                <div class="col-md-6 text-white">
+                    <h2>Giubileo 2025</h2>
+                    <div class="card mx-auto" style="width: 18rem; margin-top: 60px;">
+                        <div class="card-img-container text-center">
+                            <a href="https://www.iubilaeum2025.va/it/giubileo-2025/segni-del-giubileo.html">
+                                <img src="ITA_Giubileo-2025.webp" class="card-img-top img-fluid" alt="Giubileo 2025">
+                            </a>
+                        </div>
+                        <div class="card-body text-black">
+                            <p class="card-text">Giubileo dei Giovani 2025 a Roma dal 28/07 al 03/08</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 text-white">
+                    <h2>GMG 2027</h2>
+                    <div class="card mx-auto" style="width: 18rem; margin-top: 60px;">
+                        <div class="card-img-container text-center">
+                            <a href="https://www.lisboa2023.org/it/articolo/ci-vediamo-a-seul-nel-2027"> <img
+                                    src="cinese.jpeg" class="card-img-top img-fluid">
+                            </a>
+                        </div>
+                        <div class="card-body text-black">
+                            <p class="card-text">La prossima GMG del 2027 si svolgerà a Seul in Corea del Sud</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </div>
+
+    <div class="row justify-content-start fade-in align-items-center" style="background-color: #fff; height: 400px;">
+        <div class="col-md-8 text-start text-white">
+            <div class="row justify-content-start">
+                <div class="col-md-8 text-center d-flex flex-column align-items-center text-start">
+                    <div class="larger-circle" style="border-radius: 50%; max-width: 600px;">
+                        <img src="Whatsapp-logo-pc.png" class="img-fluid rounded-circle" alt="Immagine" style="max-width: 400px; max-height: 400px; margin-top: 10px;">
+                    </div>
+                </div>
+                <div class="col-md-4 d-flex flex-column justify-content-center">
+                    <h1 style="color: #000; font-size: 3rem; text-align: center">Unisciti al gruppo</h1>
+                        <div class="row justify-content-center mt-5" id="unisciti_al_gruppo">
+                            <div class="col-md-6 text-center">
+                                <a href="https://chat.whatsapp.com/LA7IhkmshdlLy1uLYslaBC" target="_blank"
+                                    class="btn btn-dark btn-lg">
+                                    <i class="bi bi-whatsapp icon-whatsapp"></i> Inizia
+                                </a>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+
+    
+    </section>
+
+
+    <section class="container-fluid  fade-in" id="sezione_immagine" style="height: 300px; margin-top: 150px;">
+        <div class="container">
+            <div class="row justify-content-center ">
+                <div class="col-md-6 text-center larger-circle">
+                    <img src="man.jpg" class="img-fluid rounded-circle" alt="Immagine"
+                        style="max-width: 300px; max-height: 500px; margin-top: 40px;">
+                </div>
+            </div>
+
+            <div class="row justify-content-center mt-4" id="unisciti_al_gruppo">
+                <div class="col-md-6 text-center">
+                    <h1 style="color: #fff;">Live Chat</h1>
+                    <a href="https://tawk.to/chat/65fdae1ba0c6737bd123b4bd/1hpjf07eo" target="_blank"
+                        class="btn btn-primary btn-lg mt-3">Inizia
+                        <!-- Codice del widget di live chat di Tawk.to -->
+                        <script type="text/javascript">
+                            var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+                            (function () {
+                                var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+                                s1.async = true;
+                                s1.src = 'https://embed.tawk.to/65fdae1ba0c6737bd123b4bd/1hpjf07eo';
+                                s1.charset = 'UTF-8';
+                                s1.setAttribute('crossorigin', '*');
+                                s0.parentNode.insertBefore(s1, s0);
+                            })();
+                        </script>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="container contact-section " style=" margin-top: 150px;" data-aos="fade-in">
+        <h1 class="text-center text-white">Contattaci</h1>
+        <form action="invia_email.php" method="post">
+            <div class="mb-3">
+                <label for="nome" class="form-label">Nome:</label>
+                <input type="text" id="nome" name="nome" class="form-control" placeholder="Inserisci il tuo nome"
+                    required>
+            </div>
+            <div class="mb-3">
+                <label for="cognome" class="form-label">Cognome:</label>
+                <input type="text" id="cognome" name="cognome" class="form-control"
+                    placeholder="Inserisci il tuo cognome" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" id="email" name="email" class="form-control"
+                    placeholder="Inserisci il tuo indirizzo email" required>
+            </div>
+            <div class="mb-3">
+                <label for="numero_cellulare" class="form-label">Numero di cellulare:</label>
+                <input type="tel" id="numero_cellulare" name="numero_cellulare" class="form-control"
+                    placeholder="Inserisci il tuo numero di cellulare" required>
+            </div>
+            <div class="mb-3">
+                <label for="messaggio" class="form-label">Messaggio:</label>
+                <textarea id="messaggio" name="messaggio" class="form-control" rows="4"
+                    placeholder="Inserisci il tuo messaggio" required></textarea>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Invia</button>
+            </div>
+        </form>
+    </section>
+
+
+
+
+    <footer class="bg-dark text-white fade-in py-4" id="contattaci">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-4 text-center d-flex justify-content-between">
+    
+                    <!-- Icona per Home -->
+                    <div class="col">
+                        <div class="d-flex flex-column align-items-center justify-content-center mb-3">
+                            <a href="#home" class="text-white">
+                                <i class="bi bi-house-door-fill fs-3"></i> <!-- Icona Bootstrap -->
+                            </a>
+                            <p class="mb-0 fs-6">Home</p>
+                        </div>
+                    </div>
+    
+                    <!-- Icona per WhatsApp -->
+                    <div class="col">
+                        <div class="d-flex flex-column align-items-center justify-content-center mb-3">
+                            <a href="https://chat.whatsapp.com/LA7IhkmshdlLy1uLYslaBC" target="_blank" class="text-white">
+                                <i class="bi bi-whatsapp fs-3"></i> <!-- Icona Bootstrap -->
+                            </a>
+                            <p class="mb-0 fs-6">WhatsApp</p>
+                        </div>
+                    </div>
+    
+                    <!-- Icona per Contatti -->
+                    <div class="col">
+                        <div class="d-flex flex-column align-items-center justify-content-center">
+                            <a href="#contatti" class="text-white">
+                                <i class="bi bi-telephone-fill fs-3"></i> <!-- Icona Bootstrap -->
+                            </a>
+                            <p class="mb-0 fs-6">Contatti</p>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 1200, // durata dell'animazione in millisecondi
+    });
+</script>
+
+
+</html>
